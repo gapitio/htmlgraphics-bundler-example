@@ -8,15 +8,15 @@
   "unit": "W",
   "loadRange": [10000, 20000],
   "sidebar": {
-    "total-it-load": {
+    "totalItLoad": {
       "id": "total-it-load-value",
       "metric": "\"data-hall-1\"+\"data-hall-2\""
     },
-    "total-cooling": {
+    "totalCooling": {
       "id": "total-cooling-value",
       "metric": "total-cooling"
     },
-    "total-pue": {
+    "totalPue": {
       "id": "total-pue-value",
       "metric": "('data-hall-1'+'data-hall-2')/'total-load'"
     }
