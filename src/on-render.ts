@@ -62,22 +62,22 @@ const getMetric = (metric: string, noDataValue: unknown = "No data") => {
  */
 const updateSidebarValues = () => {
   htmlNode.getElementById(
-    codeData.sidebar["total-it-load"].id
+    codeData.sidebar.totalItLoad.id
   ).textContent = formatSI(
-    getMetric(codeData.sidebar["total-it-load"].metric)
+    getMetric(codeData.sidebar.totalItLoad.metric)
   ).join(" ");
   htmlNode.getElementById(
-    codeData.sidebar["total-cooling"].id
+    codeData.sidebar.totalCooling.id
   ).textContent = formatSI(
-    getMetric(codeData.sidebar["total-cooling"].metric)
+    getMetric(codeData.sidebar.totalCooling.metric)
   ).join(" ");
 
-  let pueValue = getMetric(codeData.sidebar["total-pue"].metric);
+  let pueValue = getMetric(codeData.sidebar.totalPue.metric);
   if (pueValue !== "No data") {
     pueValue = pueValue.toFixed(2);
   }
   htmlNode.getElementById(
-    codeData.sidebar["total-pue"].id
+    codeData.sidebar.totalPue.id
   ).textContent = pueValue;
 };
 
