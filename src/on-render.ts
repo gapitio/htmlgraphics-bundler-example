@@ -63,9 +63,9 @@ const getMetric = (metric: string, noDataValue: unknown = "No data") => {
 const updateSidebarValues = () => {
   htmlNode.getElementById(
     codeData.sidebar.totalItLoad.id
-  ).textContent = formatSI(
-    getMetric(codeData.sidebar.totalItLoad.metric)
-  ).join(" ");
+  ).textContent = formatSI(getMetric(codeData.sidebar.totalItLoad.metric)).join(
+    " "
+  );
   htmlNode.getElementById(
     codeData.sidebar.totalCooling.id
   ).textContent = formatSI(
@@ -76,9 +76,7 @@ const updateSidebarValues = () => {
   if (pueValue !== "No data") {
     pueValue = pueValue.toFixed(2);
   }
-  htmlNode.getElementById(
-    codeData.sidebar.totalPue.id
-  ).textContent = pueValue;
+  htmlNode.getElementById(codeData.sidebar.totalPue.id).textContent = pueValue;
 };
 
 /**
