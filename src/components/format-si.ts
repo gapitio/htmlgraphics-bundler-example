@@ -28,9 +28,9 @@ const formatSI = (
   digits = 1,
   unit = codeData.unit,
   precision = false
-) => {
+): [string, string] => {
   if ([0, "0"].includes(num)) {
-    return ["0", unit];
+    return ["0", String(unit)];
   } else if (num == "No data" || !num) {
     return ["No data", ""];
   }

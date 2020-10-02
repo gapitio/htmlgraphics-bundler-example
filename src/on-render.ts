@@ -32,7 +32,7 @@ const getCalculationMetric = (metricCalculationString: string) => {
 /**
  * Gets a metric value by name/alias
  */
-const getMetricByName = (metricName: string, noDataValue: string) => {
+const getMetricByName = (metricName: string, noDataValue: unknown) => {
   const filteredSeries = data.series.filter(
     (series) => series.name == metricName
   );
@@ -42,7 +42,7 @@ const getMetricByName = (metricName: string, noDataValue: string) => {
   return noDataValue;
 };
 
-const getMetric = (metric: string, noDataValue: any = "No data") => {
+const getMetric = (metric: string, noDataValue: unknown = "No data") => {
   /*
     Since the codeData is parsed as an Object in the plugin,
     it can be used as a normal javascript dictionary.

@@ -6,9 +6,19 @@ const globalDefs = () => {
   window.svgData = svgData;
   window.codeData = codeData;
   window.data = {
+    state: LoadingState.Done,
     series: [],
   };
-  window.options = {};
+  window.options = {
+    add100Percentage: false,
+    centerAlignContent: false,
+    SVGBaseFix: false,
+    css: "",
+    html: "",
+    onRender: "",
+    onInit: "",
+    codeData: "",
+  };
   window.theme = {
     isDark: false,
     isLight: true,
@@ -53,6 +63,7 @@ const themeHandler = () => {
 
 // Loads on-render and executes it each time the refresh button is pressed
 const metricHandler = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-types
   let onRender: Function | null;
   const onRenderPath = "./build/on-render.js";
 
