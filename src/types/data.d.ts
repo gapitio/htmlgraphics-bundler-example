@@ -1,7 +1,7 @@
 /**
  * Represent panel data loading state.
  */
-declare enum LoadingState {
+declare const enum LoadingState {
   NotStarted = "NotStarted",
   Loading = "Loading",
   Streaming = "Streaming",
@@ -43,7 +43,7 @@ interface PanelData {
   /** Any query errors */
   error?: DataQueryError;
   /** Contains the range from the request or a shifted time range if a request uses relative time */
-  timeRange: TimeRange;
+  timeRange?: TimeRange;
 }
 
 /**

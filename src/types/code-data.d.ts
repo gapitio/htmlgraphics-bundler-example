@@ -1,4 +1,5 @@
-/**
- * The codeData as a dictionary.
- */
-declare const codeData: { [key: string]: any };
+import codeDataJSON from "../code-data.json";
+
+declare global {
+  const codeData: typeof codeDataJSON;
+}

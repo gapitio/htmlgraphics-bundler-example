@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 interface DateTimeBuiltinFormat {
   __momentBuiltinFormatBrand: any;
 }

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 interface QueryResultBase {
   /**
    * Matches the query target refId
@@ -22,6 +25,15 @@ declare enum NullValueMode {
   Null = "null",
   Ignore = "connected",
   AsZero = "null as zero",
+}
+
+/**
+ * Callback info for DataLink click events
+ */
+interface DataLinkClickEvent<T = any> {
+  origin: T;
+  scopedVars: ScopedVars;
+  e?: any;
 }
 
 interface DataLink<T extends DataQuery = any> {
@@ -52,7 +64,7 @@ interface FieldConfig<TOptions extends object = any> {
   custom?: TOptions;
 }
 
-interface FieldCalcs extends Record<string, any> {}
+type FieldCalcs = Record<string, any>;
 
 interface FieldState {
   /**
@@ -115,6 +127,18 @@ interface LinkModel<T = any> {
   target: LinkTarget;
   origin: T;
   onClick?: (e: any) => void;
+}
+
+interface Vector<T = any> {
+  length: number;
+  /**
+   * Access the value by index (Like an array)
+   */
+  get(index: number): T;
+  /**
+   * Get the results as an array.
+   */
+  toArray(): T[];
 }
 
 interface Field<T = any, V = Vector<T>> {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 declare type VariableType =
   | "query"
   | "adhoc"
