@@ -4,6 +4,8 @@
     "moduleResolution": "node",
     "module": "ESNext",
     "sourceMap": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }
