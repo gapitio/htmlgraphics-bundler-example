@@ -1,7 +1,6 @@
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import { terser } from "rollup-plugin-terser";
-import copy from "rollup-plugin-copy";
 
 const OUT_DIR = "dist";
 
@@ -18,9 +17,6 @@ export default [
       terser(),
       nodeResolve({
         browser: true,
-      }),
-      copy({
-        targets: [{ src: "src/code-data.json", dest: OUT_DIR }],
       }),
     ],
   },
