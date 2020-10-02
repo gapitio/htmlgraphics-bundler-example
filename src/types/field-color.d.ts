@@ -1,4 +1,4 @@
-declare enum FieldColorMode {
+declare const enum FieldColorMode {
   Thresholds = "thresholds",
   Scheme = "scheme",
   Fixed = "fixed",
@@ -8,7 +8,7 @@ interface FieldColor {
   schemeName?: ColorScheme;
   fixedColor?: string;
 }
-declare enum ColorScheme {
+declare const enum ColorScheme {
   BrBG = "BrBG",
   PRGn = "PRGn",
   PiYG = "PiYG",

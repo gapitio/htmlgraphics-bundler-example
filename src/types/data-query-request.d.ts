@@ -1,9 +1,9 @@
-declare enum CoreApp {
+declare const enum CoreApp {
   Dashboard = "dashboard",
   Explore = "explore",
 }
 
-declare enum ExploreMode {
+declare const enum ExploreMode {
   Logs = "Logs",
   Metrics = "Metrics",
   Tracing = "Tracing",

@@ -10,7 +10,7 @@ interface Threshold {
 /**
  *  Display mode
  */
-declare enum ThresholdsMode {
+declare const enum ThresholdsMode {
   Absolute = "absolute",
   /**
    *  between 0 and 1 (based on min/max)

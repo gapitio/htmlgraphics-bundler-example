@@ -13,7 +13,7 @@ interface DataQueryTimings {
   dataProcessingTime: number;
 }
 
-declare enum DataQueryErrorType {
+declare const enum DataQueryErrorType {
   Cancelled = "cancelled",
   Timeout = "timeout",
   Unknown = "unknown",
