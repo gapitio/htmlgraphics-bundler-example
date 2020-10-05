@@ -12,7 +12,7 @@ export default [
     input: "src/dev-site/index.ts",
     output: {
       dir: OUT_DIR,
-      format: "es",
+      format: "iife",
       sourcemap: true,
     },
     watch: {

@@ -9,7 +9,7 @@ export default [
     input: "src/on-init.ts",
     output: {
       dir: OUT_DIR,
-      format: "es",
+      format: "iife",
       sourcemap: false,
     },
     plugins: [
@@ -24,7 +24,7 @@ export default [
     input: "src/on-render.ts",
     output: {
       dir: OUT_DIR,
-      format: "es",
+      format: "iife",
       sourcemap: false,
     },
     plugins: [
