@@ -1,37 +1,54 @@
-// Loads on-render and executes it each time the refresh button is pressed
+/*
+  Loads on-render and executes it each time the refresh button is pressed
+*/
+
+function makeRequest(method: string, url: string) {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText,
+        });
+      }
+    };
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText,
+      });
+    };
+    xhr.send();
+  });
+}
+
 function renderHandler() {
   // eslint-disable-next-line @typescript-eslint/ban-types
   let onRender: Function | null;
-  const onRenderPath = "./build/on-render.js";
-
-  const client = new XMLHttpRequest();
-  client.open("GET", onRenderPath);
-  client.onreadystatechange = function () {
-    if (client.readyState == 4 && client.status == 200) {
-      /*
-        If the generated code is being evaluated as a string with the eval() function or via new Function(),
-        then the source origin will be the page’s origin.
-
-        https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-_2gc6fAH0KY0k/edit
-      */
-      const SOURCE_MAP_PATH = onRenderPath + ".map";
-      onRender = new Function(
-        `${client.responseText}\n//# sourceMappingURL=${SOURCE_MAP_PATH}`
-      );
-    }
-  };
-  client.send();
+  const ON_RENDER_PATH = "./build/on-render.js";
+  const SOURCE_MAP_PATH = ON_RENDER_PATH + ".map";
 
   const refreshButton = document.getElementById(
     "refresh-button"
   ) as HTMLDivElement;
 
-  refreshButton.onclick = function () {
-    if (!refreshButton.classList.contains("warned")) {
+  refreshButton.onclick = async function () {
+    if (!refreshButton.classList.contains("executed")) {
       console.warn(
         "Executing onRender through a Function object. Line numbers might be inaccurate."
       );
-      refreshButton.classList.add("warned");
+
+      // Get the onRender code
+      const onRenderResponse = await makeRequest("GET", ON_RENDER_PATH);
+      onRender = new Function(
+        `${onRenderResponse}\n//# sourceMappingURL=${SOURCE_MAP_PATH}`
+      );
+
+      refreshButton.classList.add("executed");
     }
     onRender();
   };
