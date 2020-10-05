@@ -18,7 +18,6 @@ function renderHandler() {
       onRender = new Function(
         `${client.responseText}\n//# sourceMappingURL=${SOURCE_MAP_PATH}`
       );
-      onRender();
     }
   };
   client.send();
