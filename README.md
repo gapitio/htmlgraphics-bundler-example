@@ -2,6 +2,8 @@
 
 Bundler example to make developing code easier and scalable.
 
+There is no weird code styles, because most of the configuration is as basic as it can be. A good example of this is by looking at the `.prettierrc.json` file.
+
 ## Table of contents
 
 - [Bundler example](#bundler-example)
@@ -11,6 +13,8 @@ Bundler example to make developing code easier and scalable.
   - [Choices](#choices)
     - [Rollup](#rollup)
     - [Typescript](#typescript)
+    - [Eslint](#eslint)
+    - [Prettier](#prettier)
 
 ## Why use a bundler
 
@@ -42,7 +46,7 @@ Then you start the development script
 yarn run dev
 ```
 
-Go to <http://localhost:5000>. Change some code in `./src/on-init.ts`, `./src/on-render.ts`, and `./src/svg-data-inkscape.svg`, and the website will update.
+Go to <http://localhost:5000>. Change some code in `./src/on-init.ts`, `./src/on-render.ts`, and `./src/design/svg-data-inkscape.svg`, and the website will update.
 
 When the code is ready to be uploaded to Grafana, start the build script
 
@@ -72,3 +76,13 @@ Some good articles
 
 - [How (and why) you should use TypeScript with Node and Express.](https://medium.com/javascript-in-plain-english/typescript-with-node-and-express-js-why-when-and-how-eb6bc73edd5d)
 - [The TypeScript Tax.](https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b)
+
+### Eslint
+
+[Eslint](https://eslint.org/) is a JavaScript linter that enables you to enforce a set of style, formatting, and coding standards for your codebase.
+
+It works great with typescript through the [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint).
+
+### Prettier
+
+[Prettier](https://prettier.io/) is used to have standard code style.
