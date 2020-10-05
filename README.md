@@ -10,6 +10,7 @@ There is no weird code styles, because most of the configuration is as basic as 
   - [Table of contents](#table-of-contents)
   - [Why use a bundler](#why-use-a-bundler)
   - [Usage](#usage)
+  - [Dev site](#dev-site)
   - [Choices](#choices)
     - [Rollup](#rollup)
     - [Typescript](#typescript)
@@ -55,6 +56,14 @@ yarn run build
 ```
 
 Then go to `/dist` and copy the contents of the files to the corresponding options in the panel. (code-data.json to codeData, ETC)
+
+## Dev site
+
+`src/dev-site` is a folder where most of the configuration for the dev website is.
+
+To add custom series go to `src/dev-site/data.ts` and add createSeries() in series.
+
+Window has been used to get global variables like data, codeData, ETC.
 
 ## Choices
 
