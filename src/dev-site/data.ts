@@ -1,4 +1,4 @@
-import createSeries from "./series";
+import createSeries from "./create-series";
 
 window.data = {
   state: LoadingState.Done,
