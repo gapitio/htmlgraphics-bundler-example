@@ -22,7 +22,17 @@ function renderHandler() {
   };
   client.send();
 
-  document.getElementById("refresh-button").onclick = function () {
+  const refreshButton = document.getElementById(
+    "refresh-button"
+  ) as HTMLDivElement;
+
+  refreshButton.onclick = function () {
+    if (!refreshButton.classList.contains("warned")) {
+      console.warn(
+        "Executing onRender through a Function object. Line numbers might be inaccurate."
+      );
+      refreshButton.classList.add("warned");
+    }
     onRender();
   };
 }
